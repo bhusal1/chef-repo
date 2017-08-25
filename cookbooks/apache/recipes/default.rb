@@ -4,9 +4,23 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-package "httpd" do
+#install apache
+
+package 'httpd' do
 	action :install
 end
-service "httpd" do
-	action [:enable, :start]
+
+service 'httpd' do
+	action [:start, :enable]
+end
+
+file '/var/www/html/index.html' do
+	content 'welcome to my Home page'
+
+end
+
+#install tree
+
+package 'tree' do
+	action :install
 end
